@@ -1,4 +1,4 @@
-name: Django Docker CD/CD Workflow with Amazon ECR
+name: Django Docker CI/CD Workflow with Amazon ECR
 
 on:
   push:
@@ -20,10 +20,10 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
       with:
-        registry: <your-aws-account-id>.dkr.ecr.<your-aws-region>.amazonaws.com
+        registry: 722059173340.dkr.ecr.us-east-1.amazonaws.com
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: <your-aws-region>
+        aws-region: us-east-1
 
     - name: Build Docker image
       id: build-image
@@ -31,7 +31,7 @@ jobs:
       with:
         context: .
         push: false
-        tags: <your-aws-account-id>.dkr.ecr.<your-aws-region>.amazonaws.com/<your-repository-name>:latest
+        tags: 722059173340.dkr.ecr.us-east-1.amazonaws.com/hospital:latest
 
     - name: Push Docker image to Amazon ECR
       id: push-image
@@ -39,10 +39,10 @@ jobs:
       with:
         context: .
         push: true
-        tags: <your-aws-account-id>.dkr.ecr.<your-aws-region>.amazonaws.com/<your-repository-name>:latest
+        tags: 722059173340.dkr.ecr.us-east-1.amazonaws.com/hospital:latest
       env:
-        ECR_REGISTRY: <your-aws-account-id>.dkr.ecr.<your-aws-region>.amazonaws.com
-        ECR_REPOSITORY: <your-repository-name>
+        ECR_REGISTRY: 722059173340.dkr.ecr.us-east-1.amazonaws.com
+        ECR_REPOSITORY: hospital
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: <your-aws-region>
+        AWS_REGION: us-east-1
