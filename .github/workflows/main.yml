@@ -1,4 +1,4 @@
-name: Django Docker CD/CD Workflow with Amazon ECR
+name: Django Docker CI/CD Workflow with Amazon ECR
 
 on:
   push:
