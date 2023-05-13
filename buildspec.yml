@@ -8,7 +8,7 @@ phases:
       - pip3 install -r requirement.txt
   build:
     commands:
-      - python manage.py collectstatic --noinput
+      - python manage.py runserver
 artifacts:
   files:
     - '**/*'
