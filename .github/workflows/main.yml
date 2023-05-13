@@ -20,7 +20,7 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
       with:
-        registry: 7220-5917-3340.dkr.ecr.us-east-1.amazonaws.com
+        registry: 722059173340.dkr.ecr.us-east-1.amazonaws.com
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
@@ -31,7 +31,7 @@ jobs:
       with:
         context: .
         push: false
-        tags: 7220-5917-3340.dkr.ecr.us-east-1.amazonaws.com/hospital:latest
+        tags: 722059173340.dkr.ecr.us-east-1.amazonaws.com/hospital:latest
 
     - name: Push Docker image to Amazon ECR
       id: push-image
@@ -39,9 +39,9 @@ jobs:
       with:
         context: .
         push: true
-        tags: 7220-5917-3340.dkr.ecr.us-east-1.amazonaws.com/hospital:latest
+        tags: 722059173340.dkr.ecr.us-east-1.amazonaws.com/hospital:latest
       env:
-        ECR_REGISTRY: 7220-5917-3340.dkr.ecr.us-east-1.amazonaws.com
+        ECR_REGISTRY: 722059173340.dkr.ecr.us-east-1.amazonaws.com
         ECR_REPOSITORY: hospital
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
