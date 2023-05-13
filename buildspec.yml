@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-      - pip3 install -r requirements.txt
+      - pip3 install -r requirement.txt
   build:
     commands:
       - python manage.py collectstatic --noinput
