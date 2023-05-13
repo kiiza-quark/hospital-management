@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - apt-get update
+      - apt-get install -y python3-dev python3-pip build-essential
+      - pip3 install --upgrade pip
+      - pip3 install -r requirements.txt
+  build:
+    commands:
+      - python manage.py collectstatic --noinput
+artifacts:
+  files:
+    - '**/*'
+  name: hospital-artifact
+  discard-paths: yes
