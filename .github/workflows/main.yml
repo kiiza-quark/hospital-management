@@ -31,7 +31,7 @@ jobs:
       with:
         context: .
         push: false
-        tags: 722059173340.dkr.ecr.us-east-1.amazonaws.com/hospital:latest
+        tags: 722059173340.dkr.ecr.us-east-1.amazonaws.com/hospital
 
     - name: Push Docker image to Amazon ECR
       id: push-image
@@ -39,7 +39,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: 722059173340.dkr.ecr.us-east-1.amazonaws.com/hospital:latest
+        tags: 722059173340.dkr.ecr.us-east-1.amazonaws.com/hospital
       env:
         ECR_REGISTRY: 722059173340.dkr.ecr.us-east-1.amazonaws.com
         ECR_REPOSITORY: hospital
